@@ -1,0 +1,108 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!--Bootstrap v5 for Content Styling-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>ChatAPP</title>
+
+  </head>
+  <body>
+      
+
+    <!--Initialise Bootstrap v4 for NavBar-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="?#">
+        <h2 style="font-family:monospace;">UnivChat</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+            <a class="nav-link" href="/">Home<span class="sr-only"> 
+            (current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/rooms">Chat rooms</a>
+            </li>
+            
+        </ul>
+              
+        
+      
+      
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <div class="container">
+      <div class="row">
+        
+    <div class="col-md-4 ">
+    <div class="card" style="width: 14rem;margin-top: 100px;">
+      <img class="card-img-top" src="https://images.theconversation.com/files/290142/original/file-20190829-106508-1lxdemj.jpg?ixlib=rb-1.1.0&rect=0%2C168%2C3632%2C1816&q=45&auto=format&w=1356&h=668&fit=crop" alt="Card image cap">
+      <div class="card-body">
+          <h5 class="card-title">Photography</h5>
+          <p class="card-text">Click the people, not the Shutter.</p>
+          <a href="/rooms/photography" class="btn btn-primary">Lets go</a>
+      </div>
+    </div>
+    </div>
+
+    <div class="col-md-8">
+    <div class="card" style="width: 14rem;margin-top: 100px;">
+      <img class="card-img-top" src="https://ak.picdn.net/shutterstock/videos/1023172942/thumb/1.jpg?ip=x480" alt="Card image cap">
+      <div class="card-body">
+          <h5 class="card-title">Coding</h5>
+          <p class="card-text">Fire up the terminal.</p>
+          <a href="/rooms/coding" class="btn btn-primary">Lets go</a>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-4">
+    <div class="card" style="width: 14rem;margin-top: 100px;">
+      <img class="card-img-top" src="https://c4.wallpaperflare.com/wallpaper/502/259/582/feelsbadman-pepe-meme-memes-wallpaper-preview.jpg" alt="Card image cap">
+      <div class="card-body">
+          <h5 class="card-title">Memes</h5>
+          <p class="card-text">Who doesn't love memes</p>
+          <a href="/rooms/memes" class="btn btn-primary">Lets go</a>
+      </div>
+    </div>
+  </div>  
+
+    <div class="col-md-4">
+    <div class="card" style="width: 14rem;margin-top: 100px;">
+      <img class="card-img-top" src="https://wallpaperaccess.com/full/1782182.jpg" alt="Card image cap">
+      <div class="card-body">
+          <h5 class="card-title">Nerds</h5>
+          <p class="card-text">THE Ultimate NerdArea..</p>
+          <a href="/rooms/nerds" class="btn btn-primary">Lets go</a>
+      </div>
+    </div>
+  </div>  
+      
+    </div>
+  </div>
+ 
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+
+
+    </script>
+
+
+</body>
+</html> 

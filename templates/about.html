@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!--Bootstrap v5 for Content Styling-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>ChatAPP</title>
+
+  </head>
+  <body>
+      
+
+    <!--Initialise Bootstrap v4 for NavBar-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="?#">
+        <h2 style="font-family:monospace;">UnivChat</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="/">Home<span class="sr-only"> 
+            (current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/rooms">Chat rooms</a>
+            </li>
+        </ul>
+    </div>
+	</nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 p-5 mt-5 " style="font-size: 20px;">
+          <div class="jumbotron">
+          <h1>UnivChat <i class="bi bi-chat-dots"></i></h1>
+        </div>
+      <p>
+        UnivChat is an online chat application . The <a href='/'>public chat</a> room enables the user to chat publicly 
+        just by providing an username . </p>
+        <br><br>
+        <h3>Rooms <i class="bi bi-door-open"></i></h3>
+        <p>
+        The <a href='/rooms'>Rooms</a> feature enables the user to chat in private rooms .
+      </p>
+      <br><br>
+      <button id="read_more" class="btn btn-secondary">Read more</button>
+
+      <br><br>
+      <div class="dev-info">
+        <h3>
+          <i class="bi bi-bookmark-heart"></i> Dev
+        </h3>
+      <p>
+        <br>
+          <b>Frontend:</b> <i class="bi bi-front"></i><br>
+          HTML<br>
+          CSS(Bootstrap v5) <br>
+          Javascript( Jquery )<br>
+          <br>
+          <b>Backend:</b> <i class="bi bi-back"></i><br>
+          Flask<br>
+          Flask-Socketio<br>      
+      </p>
+      <br>
+
+      <h3>Socials </h3>
+      <p>
+       <i class="bi bi-github"></i> Github: <a href="https://github.com/anii-3301">anii-3301</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#read_more').click(function(){
+    
+          $('.dev-info').slideToggle('slow')
+
+        })
+      })
+
+    </script>
+</body>
+</html>

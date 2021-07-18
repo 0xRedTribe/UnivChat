@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!--Bootstrap v5 for Content Styling-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>Coding</title>
+
+  </head>
+  <body>
+      
+
+    <!--Initialise Bootstrap v4 for NavBar-->
+    <!--NAVBAR-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+       <a class="navbar-brand" href="?#">
+        <h2 style="font-family:monospace;">UnivChat</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+            <a class="nav-link" href="/">Home<span class="sr-only"> 
+            (current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+         	<li class="nav-item active">
+         		<a class="nav-link" href="/rooms">Chat rooms</a>
+         	</li>
+        </ul>
+               
+
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+
+    
+   		<!--'NO MESSAGEs' HOLDER-->
+     <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="no_message"><br><br><br><br>
+              <h2 id="roomTitle" style="font-family: monospace;">Room: Nerds <i class="bi bi-book"></i></h2>
+              <h1 class="msgplace" style='color: #ccc'>No message yet..</h1>
+              <br><br>
+            <div class="message_holder " style="border:1px solid #ccc;padding:5px;margin-bottom: 3px;border-radius:10px;visibility: hidden;font-family: monospace;overflow: hidden;box-shadow: 5px 10px 8px #888888;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- MAIN ( FORM )-->
+      <div class="container">
+        <div class="row">
+        <div class="col">
+        <form action="" method="POST">
+          <!--nickname-->
+            <div class="clearfix" style="margin-top: 15px;"></div>
+              <label for="floatingInput">nickname:</label>
+              <input id="floatingInput" type="text" class="username form-control" maxlength="20" placeholder="Eg.Burrito">
+          <!--message-->
+            <div class="form-floating" style="margin-top: 10px;">
+              
+              <textarea class="message form-control" maxlength="125"  placeholder="Leave a message here" id="floatingTextarea" style="height: 100px;"></textarea>
+              <label for="floatingTextarea">Messages</label>
+
+            </div>
+        <!--submit-->
+            <div style="padding-top: 15px;"></div>
+              <button type="submit" data-toggle="tooltip" title="Send Messages" class="btn btn-success btn-block"><span class="glyphicon glyphicon-send"></span> Send</button>
+        </form>
+        </div>
+        </div>
+        </div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect('http://' + document.domain + ':' + location.port + '/rooms/nerds');
+      socket.on( 'connect', function() {
+        socket.emit( 'nerd event', { 
+          data: 'User Connected'
+        } )
+        var form = $( 'form' ).on( 'submit', function( e ) {
+          e.preventDefault()
+          let user_name = $( 'input.username' ).val()
+          let user_input = $( 'textarea.message' ).val()
+          user_name = user_name.replace('<','**').replace('>',"**").replace('/','**').replace(';','//');
+          user_input = user_input.replace('<','**').replace('>',"**").replace('/','**').replace(';','//');
+          socket.emit( 'nerd event', {
+            user_name : user_name,
+            message : user_input
+          } )
+          $( 'textarea.message' ).val( '' ).focus()
+        } )
+      } )
+      socket.on( 'nerd response', function( msg ) {
+       // console.log( msg )
+        if( typeof msg.user_name !== 'undefined' ) {
+          $('.message_holder').css('visibility','visible')
+          $( 'h1.msgplace' ).remove()
+          $( 'div.message_holder' ).append( '<div><b style="color: #2ea34d">'+msg.user_name+':'+ '</b> '+ msg.message+'</div>' )
+        }
+      })
+      
+
+  </script>
+</body>
+</html>
